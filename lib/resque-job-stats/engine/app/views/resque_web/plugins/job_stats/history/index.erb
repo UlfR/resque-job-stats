@@ -6,7 +6,7 @@
 
 <h2><%= @job_class %></h2>
 
-<table>
+<table class="table table-bordered">
   <tr>
     <th>Start time</th>
     <th>Duration</th>
@@ -28,11 +28,10 @@
 <%if @start > 0 || @start + @limit <= @size %>
 <p class='pagination'>
   <% if @start - @limit >= 0 %>
-    <a href="<%= current_page %>?start=<%= [0, @start - @limit].max %>&limit=<%= @limit %>" class='less'>&laquo; less</a>
+    <a href="<%= @current_page %>?start=<%= [0, @start - @limit].max %>&limit=<%= @limit %>" class='less'>&laquo; less</a>
   <% end %>
   <% if @start + @limit <= @size %>
-    <a href="<%= current_page %>?start=<%= @start + @limit %>&limit=<%= @limit %>" class='more'>more &raquo;</a>
+    <a href="<%= @current_page %>?start=<%= @start + @limit %>&limit=<%= @limit %>" class='more'>more &raquo;</a>
   <% end %>
 </p>
 <%end%>
-
